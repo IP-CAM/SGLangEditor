@@ -7,6 +7,7 @@
  */
 class ControllerExtensionModuleSgLangEditor extends Controller
 {
+   private $MODULE_NAME      = 'module_sg_lang_editor';
    private $MODULE_PATH      = 'extension/module/sg_lang_editor';
    private $ERROR_PERMISSION = 'error_permission';
    private $OPTION_STATUS    = 'module_sg_lang_editor_status';
@@ -43,6 +44,26 @@ class ControllerExtensionModuleSgLangEditor extends Controller
    }
 
    /**
+    * @brief This method prepares installation for the module
+   */
+   public function install()
+   {
+      $this->load->model('setting/setting');
+      $this->model_setting_setting->editSetting($this->MODULE_NAME, array($this->OPTION_STATUS => 1));
+      $this->config->set($this->OPTION_STATUS, 1);
+   }
+
+   /**
+    * @brief This method prepares uninstallation for the module
+   */
+   public function uninstall()
+   {
+      $this->load->model('setting/setting');
+      $this->model_setting_setting->deleteSetting($this->MODULE_NAME);
+      $this->config->set($this->OPTION_STATUS, 0);
+   }
+
+   /**
     * @brief This method checks if error is set and decodes it.
     */
    private function checkErrors()
@@ -50,30 +71,6 @@ class ControllerExtensionModuleSgLangEditor extends Controller
       if ($this->m_error != null)
       {
          $this->m_data['error'] = $this->language->get($this->m_error);
-      }
-   }
-
-   /**
-    * @brief This method is called when user saves options.
-    */
-   public function update()
-   {
-      if ($this->user->hasPermission('modify', $this->MODULE_PATH) &&
-          isset($this->request->post[$this->OPTION_STATUS]))
-      {
-         if ($this->request->post[$this->OPTION_STATUS] != $this->config->get($this->OPTION_STATUS))
-         {
-            $this->load->language($this->MODULE_PATH);
-            $this->load->model('setting/setting');
-            $this->model_setting_setting->editSetting($this->MODULE_NAME, $this->request->post);
-            $this->session->data['success'] = $this->language->get('text_success');
-         }
-         $this->response->redirect($this->getLink('marketplace/extension', 'type=module'));
-      }
-      else
-      {
-         $this->m_error = $this->ERROR_PERMISSION;
-         $this->index();
       }
    }
 
