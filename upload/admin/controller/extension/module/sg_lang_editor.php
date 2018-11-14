@@ -9,9 +9,7 @@ class ControllerExtensionModuleSgLangEditor extends Controller
 {
    private $MODULE_NAME      = 'module_sg_lang_editor';
    private $MODULE_PATH      = 'extension/module/sg_lang_editor';
-   private $ERROR_PERMISSION = 'error_permission';
    private $OPTION_STATUS    = 'module_sg_lang_editor_status';
-   private $ACTION_UPDATE    = 'extension/module/sg_lang_editor/update';
 
    /**
     * @brief This member contains errors codes.
@@ -35,11 +33,7 @@ class ControllerExtensionModuleSgLangEditor extends Controller
       $this->setCommonData();
       $this->checkErrors();
       
-      $this->m_data['cancel'] = $this->getLink('marketplace/extension', 'type=module');
-      $this->m_data['action'] = $this->getLink($this->ACTION_UPDATE);
-      $this->m_data['module_status'] = $this->OPTION_STATUS;
-      $this->m_data['module_status_enabled'] = $this->config->get($this->OPTION_STATUS);
-
+      $this->m_data['exit_link'] = $this->getLink('marketplace/extension', 'type=module');
       $this->response->setOutput($this->load->view($this->MODULE_PATH, $this->m_data));
    }
 

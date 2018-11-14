@@ -6,15 +6,8 @@
 */
 
 // Heading
-$_['heading_title']    = 'SG Редактор мов';
+$_['heading_title']    = 'Редактор мов Language Editor';
 
 // Text
-$_['text_edit']        = 'Налаштування SG Редактор мов';
-$_['text_success']     = 'Успіх: Налаштування SG Редактор мов успішно змінені!';
 $_['text_extension']   = 'Розширення';
-
-// Entry
-$_['entry_status']     = 'Статус';
-
-//Error
-$_['error_permission'] = 'У Вас не має привілеів для зміни налаштувань SG Редактор мов';
+$_['text_exit_tip']    = 'Вихід';
