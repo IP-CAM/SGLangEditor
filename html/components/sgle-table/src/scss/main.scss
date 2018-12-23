@@ -1,0 +1,34 @@
+.sgle-table{
+   width: 100%;
+   border-collapse: collapse;
+   background-color: #ebebeb;
+   font-family: "Open Sans", sans-serif;
+
+   &__header{
+      font-size: 14px;
+      font-weight: bold;
+      background-color: #1873ae;
+      color: #ffffff;
+   }
+
+   &__header-row{
+      height: 38px;
+      text-align: left;
+   }
+
+   &__row{
+      font-size: 14px;
+      height: 38px;
+      background-color: #ffffff;
+
+      &:hover{
+         cursor: pointer;
+         color: #b3cbdd;
+         background-color: #242d37;
+      }
+
+      &_dark{
+         background-color: #ebebeb;
+      }
+   }
+}
