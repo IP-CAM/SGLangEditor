@@ -1,0 +1,19 @@
+.sgle-input{
+   font-size: inherit;
+
+   &__label{
+      display: inline-block;
+      font-weight: bold;
+      width: 55px;
+   }
+
+   &__input{
+      color: #838383;
+      width: 275px;
+      height: 20px;
+      border: none;
+      padding: 5px;
+      font-size: inherit;
+      background-color: #dedede;
+   }
+}

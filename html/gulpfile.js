@@ -26,7 +26,9 @@ function addComponentCssTask(name){
 function addComponentJsTask(name){
    gulp.task(name+'.js', function(){
    return gulp.src(COMPONENTS_PATH + name + '/src/js/script.js')
-          .pipe(include()).on('error', console.log)
+          .pipe(include({includePaths: [
+            __dirname + '/' + COMPONENTS_PATH, 
+            __dirname + '/' + COMPONENTS_PATH + name + '/src/js']})).on('error', console.log)
           .pipe(gulp.dest(COMPONENTS_PATH + name + '/dist/js'))
    });
 }

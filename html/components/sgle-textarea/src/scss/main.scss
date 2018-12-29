@@ -1,0 +1,27 @@
+.sgle-textarea{
+
+   &__label{
+      display: block;
+      font-weight: bold;
+      margin-bottom: 10px;
+   }
+
+   &__input{
+      width: 98%;
+      display: block;
+      font-size: inherit;
+      padding: 5px;
+      height: 140px;
+      border: none;
+      resize: none;
+
+      &:focus{
+         outline: none;
+      }
+
+      &_disable{
+         color: #838383;
+         background-color: #dedede;
+      }
+   }
+}

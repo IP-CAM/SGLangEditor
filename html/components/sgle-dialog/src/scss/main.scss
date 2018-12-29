@@ -1,9 +1,55 @@
 .sgle-dialog{
+   display: none;
+   position: absolute;
+   top:0;
+   bottom:0;
+   left:0;
+   right:0;
    width: 757px;
    height: 587px;
    border: 2px solid rgb(235, 235, 235);
    background-color: rgb(240, 240, 240);
    margin: 50px auto;
+   font-size: 18px;
+   font-family: "Open Sans";
+   
+   &__key,
+   &__file{
+      display: inline-block;
+      padding: 15px;
+   }
+   
+   &__lang-to,
+   &__lang-from{
+      width: 727px;
+      margin: 15px;
+   }
+   
+   &__buttons{
+      padding: 20px;
+      text-align: right;
+   }
+   
+   &__save{
+      display: inline-block;
+      margin-right: 30px;
+      color: #ffffff;
+      background-color: #1873ae;
+   }
+   
+   &__cancel{
+      display: inline-block;
+      color: #b3cbdd;
+      background-color: #242d37;
+   }
+}
+
+.sgle-button{
+   cursor: pointer;
+   width: 160px;
+   height: 35px;
+   text-align: center;
+   line-height: 35px;
 }
 
 .sgle-dialog-header{
@@ -11,14 +57,12 @@
    width: 100%;
    height: 32px;
    background-color: rgb(253, 253, 253);
-   
+
    &__close{
       position: absolute;
       top: 5px;
       right: 10px;
       cursor: pointer;
-      font-size: 18px;
-      font-family: "Open Sans";
       color: rgb( 235, 235, 235 );
    }
 }
